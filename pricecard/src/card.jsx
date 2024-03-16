@@ -1,28 +1,27 @@
-function Card(props){
-    console.log(props.details.plan)
+function Card({details}){
+
     return <>
-        <div class="col-lg-4">
-          <div class="card mb-5 mb-lg-0">
-            <div class="card-body">
-              <h5 class="card-title text-muted text-uppercase text-center">{props.details.plan}</h5>
-              <h6 class="card-price text-center">{props.details.price}<span class="period">/month</span></h6>
+        <div className="col-lg-4">
+          <div className="card mb-5 mb-lg-0">
+            <div className="card-body">
+              <h5 className="card-title text-muted text-uppercase text-center">{details.plan}</h5>
+              <h6 className="card-price text-center">${details.price}<span className="period">/month</span></h6>
               <hr />
-              <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>{props.details.user}</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>{props.details.storage}</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>{props.details.PublicProject}</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>{props.details.communityAccess}</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited
-                  Private Projects</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated
-                  Phone Support</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{props.details.subdomain}
+              <ul className="fa-ul">
+                <li className={details.isUser?"":"text-muted"}><span className="fa-li"><i className={details.isUser?"fas fa-check":"fas fa-times"}></i></span>{details.plan!=="FREE"?<b>{details.plan==="PRO"?"Unlimited":""} {details.user}</b> : details.user}</li>
+                <li className={details.isStorage?"":"text-muted"}><span className="fa-li"><i className={details.isStorage?"fas fa-check":"fas fa-times"}></i></span>{details.PublicProject}</li>
+                <li className={details.isPublicProject?"":"text-muted"}><span className="fa-li"><i className="fas fa-check"></i></span>{details.communityAccess}</li>
+                <li className={details.isCommunityAccess?"":"text-muted"}><span className="fa-li"><i className="fas fa-check"></i></span>{details.storage}</li>
+                <li className={details.isPrivateProjects?"":"text-muted"}><span className="fa-li"><i className={details.isPrivateProjects?"fas fa-check":"fas fa-times"}></i></span>{details.PrivateProjects}
                 </li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status
-                  Reports</li>
+                <li className={details.isSupport?"":"text-muted"}><span className="fa-li"><i className={details.isSupport?"fas fa-check":"fas fa-times"}></i></span>{details.support}
+                </li>
+                <li className={details.isSubdomain?"":"text-muted"}><span className="fa-li"><i className={details.isSubdomain?"fas fa-check":"fas fa-times"}></i></span>{details.plan==="PRO"?<span><b>Unlimited </b>{details.subdomain}</span>:details.subdomain}
+                </li>
+                <li className={details.isReports?"":"text-muted"}><span className="fa-li"><i className={details.isReports?"fas fa-check":"fas fa-times"}></i></span>{details.reports}</li>
               </ul>
-              <div class="d-grid">
-                <a href="#" class="btn btn-primary text-uppercase">Button</a>
+              <div className="d-grid">
+                <a href="#" className="btn btn-primary text-uppercase">Button</a>
               </div>
             </div>
           </div>

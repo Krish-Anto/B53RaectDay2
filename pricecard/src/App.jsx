@@ -7,52 +7,76 @@ const data = [
   {
     plan:"FREE",
     price:0,
-    user : "single User",
+    user : "Single User",
+    isUser:true,
     storage:"5GB Storage",
+    isStorage:true,
     PublicProject:"Unlimited Public Projects",
+    isPublicProject:true,
     communityAccess:"Community Access",
+    isCommunityAccess:true,
     PrivateProjects:"Unlimited Private Projects",
-    support:"DedicatedPhonesupport",
+    isPrivateProjects:false,
+    support:"Dedicated Phone Support",
+    isSupport:false,
     subdomain:"Free Subdomain",
-    reports:"Monthly Status Reports"
+    isSubdomain:false,
+    reports:"Monthly Status Reports",
+    isReports:false
 
   },
   {
-    plan:"Plus",
+    plan:"PLUS",
     price:9,
     user : "5 Users",
+    isUser:true,
     storage:"50GB Storage",
+    isStorage:true,
     PublicProject:"Unlimited Public Projects",
+    isPublicProject:true,
     communityAccess:"Community Access",
+    isCommunityAccess:true,
     PrivateProjects:"Unlimited Private Projects",
-    support:"DedicatedPhonesupport",
+    isPrivateProjects:true,
+    support:"Dedicated Phone Support",
+    isSupport:true,
     subdomain:"Free Subdomain",
-    reports:"Monthly Status Reports"
+    isSubdomain:true,
+    reports:"Monthly Status Reports",
+    isReports:false
 
   },
   {
     plan:"PRO",
     price:49,
-    user : "Multiple users",
+    user : "Users",
+    isUser:true,
     storage:"150GB Storage",
+    isStorage:true,
     PublicProject:"Unlimited Public Projects",
+    isPublicProject:true,
     communityAccess:"Community Access",
+    isCommunityAccess:true,
     PrivateProjects:"Unlimited Private Projects",
-    support:"DedicatedPhonesupport",
-    subdomain:"Unlimited Free Subdomains",
-    reports:"Monthly Status Reports"
+    isPrivateProjects:true,
+    support:"Dedicated Phone Support",
+    isSupport:true,
+    subdomain:"Free Subdomains",
+    isSubdomain:true,
+    reports:"Monthly Status Reports",
+    isReports:true
 
   }
 ]
 
 
   return <>
-    <section class="pricing py-5">
-      <div class="container">
-        <div class="row">
+    <section className="pricing py-5">
+      <div className="container">
+        <div className="row">
           {
-            data.map((e)=>{
-              return <Card details={e}/>
+            data.map((e,i)=>{
+              return <Card details={e} key={i}/>
             })
           }
 
